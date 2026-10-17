@@ -1,0 +1,338 @@
+/* ============================================================
+   ClubCut Edit — Design System CSS Variables & Themes
+   Dark mode by default. Light mode via [data-theme="light"]
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Dark Theme (default) ───────────────────────────────── */
+:root {
+  /* Brand palette */
+  --brand-primary:      #7C6EFA;   /* violet */
+  --brand-secondary:    #5EEAD4;   /* teal */
+  --brand-accent:       #F97316;   /* orange — filler word badges */
+  --brand-danger:       #F43F5E;   /* rose */
+  --brand-success:      #22C55E;   /* green */
+  --brand-warning:      #EAB308;   /* yellow */
+
+  /* Gradients */
+  --gradient-brand:   linear-gradient(135deg, #7C6EFA 0%, #5EEAD4 100%);
+  --gradient-hero:    linear-gradient(135deg, #1a1040 0%, #0f1e2e 100%);
+  --gradient-card:    linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+
+  /* Backgrounds */
+  --bg-base:          #0A0A0F;
+  --bg-surface:       #111118;
+  --bg-elevated:      #18181f;
+  --bg-overlay:       #1f1f2a;
+  --bg-hover:         #252535;
+  --bg-active:        #2a2a40;
+
+  /* Glass */
+  --glass-bg:         rgba(255, 255, 255, 0.04);
+  --glass-border:     rgba(255, 255, 255, 0.08);
+  --glass-hover:      rgba(255, 255, 255, 0.07);
+
+  /* Text */
+  --text-primary:     #F1F0FF;
+  --text-secondary:   #A8A5C8;
+  --text-muted:       #6B6890;
+  --text-disabled:    #3D3B56;
+  --text-inverse:     #0A0A0F;
+
+  /* Borders */
+  --border-subtle:    rgba(255, 255, 255, 0.06);
+  --border-default:   rgba(255, 255, 255, 0.10);
+  --border-strong:    rgba(255, 255, 255, 0.18);
+  --border-brand:     rgba(124, 110, 250, 0.40);
+
+  /* Sentiment colours */
+  --sentiment-positive: #22C55E;
+  --sentiment-neutral:  #A8A5C8;
+  --sentiment-negative: #F43F5E;
+
+  /* Speaker colours (cycling) */
+  --speaker-0: #7C6EFA;
+  --speaker-1: #5EEAD4;
+  --speaker-2: #F97316;
+  --speaker-3: #F43F5E;
+  --speaker-4: #EAB308;
+  --speaker-5: #06B6D4;
+
+  /* Sizing */
+  --sidebar-width:        240px;
+  --sidebar-collapsed:    56px;
+  --header-height:        56px;
+  --player-height:        72px;
+  --radius-sm:            6px;
+  --radius-md:            10px;
+  --radius-lg:            16px;
+  --radius-xl:            24px;
+  --radius-full:          9999px;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.6);
+  --shadow-brand: 0 0 24px rgba(124, 110, 250, 0.25);
+  --shadow-glow:  0 0 40px rgba(124, 110, 250, 0.15);
+
+  /* Typography */
+  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-mono:  'JetBrains Mono', 'Fira Code', monospace;
+  --text-xs:    11px;
+  --text-sm:    13px;
+  --text-base:  15px;
+  --text-md:    16px;
+  --text-lg:    18px;
+  --text-xl:    22px;
+  --text-2xl:   28px;
+  --text-3xl:   36px;
+  --text-4xl:   48px;
+
+  /* Transitions */
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base:   250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Z-index scale */
+  --z-base:    0;
+  --z-raised:  10;
+  --z-overlay: 100;
+  --z-modal:   200;
+  --z-toast:   300;
+  --z-tooltip: 400;
+
+  color-scheme: dark;
+}
+
+/* ── Light Theme ─────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg-base:          #F5F4FF;
+  --bg-surface:       #FFFFFF;
+  --bg-elevated:      #F0EFFF;
+  --bg-overlay:       #E8E6FF;
+  --bg-hover:         #EDEAFF;
+  --bg-active:        #E0DDFF;
+
+  --glass-bg:         rgba(124, 110, 250, 0.04);
+  --glass-border:     rgba(124, 110, 250, 0.12);
+  --glass-hover:      rgba(124, 110, 250, 0.07);
+
+  --text-primary:     #1A1630;
+  --text-secondary:   #4A4570;
+  --text-muted:       #7B77A0;
+  --text-disabled:    #C4C1D8;
+  --text-inverse:     #F1F0FF;
+
+  --border-subtle:    rgba(124, 110, 250, 0.08);
+  --border-default:   rgba(124, 110, 250, 0.15);
+  --border-strong:    rgba(124, 110, 250, 0.30);
+  --border-brand:     rgba(124, 110, 250, 0.50);
+
+  --shadow-sm:  0 1px 3px rgba(124, 110, 250, 0.10);
+  --shadow-md:  0 4px 16px rgba(124, 110, 250, 0.12);
+  --shadow-lg:  0 8px 32px rgba(124, 110, 250, 0.15);
+  --shadow-brand: 0 0 24px rgba(124, 110, 250, 0.20);
+  --shadow-glow:  0 0 40px rgba(124, 110, 250, 0.10);
+
+  color-scheme: light;
+}
+
+/* ── Base Styles ─────────────────────────────────────────── */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Typography ──────────────────────────────────────────── */
+h1 { font-size: var(--text-3xl); font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+h2 { font-size: var(--text-2xl); font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; }
+h3 { font-size: var(--text-xl);  font-weight: 600; line-height: 1.4; }
+h4 { font-size: var(--text-lg);  font-weight: 600; line-height: 1.4; }
+h5 { font-size: var(--text-md);  font-weight: 500; }
+h6 { font-size: var(--text-base); font-weight: 500; }
+
+p  { color: var(--text-secondary); line-height: 1.7; }
+a  { color: var(--brand-primary); text-decoration: none; transition: opacity var(--transition-fast); }
+a:hover { opacity: 0.8; }
+
+code, kbd { font-family: var(--font-mono); font-size: 0.9em; }
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+/* ── Utility Classes ─────────────────────────────────────── */
+
+/* Glass card */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-hover {
+  transition: background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.glass-hover:hover {
+  background: var(--glass-hover);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus ring */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Truncate */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Status dot */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.status-dot.processing { background: var(--brand-primary); animation: pulse-dot 1.5s infinite; }
+.status-dot.completed  { background: var(--brand-success); }
+.status-dot.failed     { background: var(--brand-danger); }
+.status-dot.queued     { background: var(--text-muted); }
+
+/* ── Animations ─────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: var(--shadow-brand); }
+  50%       { box-shadow: var(--shadow-glow), var(--shadow-brand); }
+}
+
+/* Animation utility classes */
+.animate-fade-in       { animation: fadeIn 0.35s var(--transition-base) both; }
+.animate-fade-in-left  { animation: fadeInLeft 0.35s var(--transition-base) both; }
+.animate-slide-in      { animation: slideInRight 0.30s var(--transition-base) both; }
+.animate-scale-in      { animation: scaleIn 0.25s var(--transition-bounce) both; }
+.animate-spin          { animation: spin 1s linear infinite; }
+.animate-float         { animation: float 3s ease-in-out infinite; }
+.animate-glow          { animation: glow-pulse 2s ease-in-out infinite; }
+
+/* Staggered delays */
+.delay-100 { animation-delay: 0.10s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+
+/* ── Skeleton Loader ─────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-elevated) 25%,
+    var(--bg-hover) 50%,
+    var(--bg-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Scrollable container helper ─────────────────────────── */
+.scroll-area {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
